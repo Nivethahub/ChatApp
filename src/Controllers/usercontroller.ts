@@ -28,10 +28,10 @@ export class UserController {
       if (!(Email && passWord))
         return res.status(400).send("All input were compulsory");
       const confirm_email = await Usermodel.findOne({
-        Email: Email,
+        Email: Email,isArchieve:false
       });
       if (confirm_email) {
-        const confirm_pwd = await Usermodel.findOne({Email:confirm_email.Email,passWord:passWord})
+        const confirm_pwd = await Usermodel.findOne({Email:confirm_email.Email,passWord:passWord,isArchieve:false})
         if (confirm_pwd) {
           return res.status(200).json({message:"user loggedIn successfully"})
         } else {

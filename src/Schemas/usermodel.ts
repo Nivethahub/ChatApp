@@ -5,7 +5,7 @@ export interface IUser extends Document {
   passWord: string;
   profilePicture: string;
   role: string;
-  isActive: boolean;
+  isArchieve: boolean;
   createdAt: number;
   updatedAt: number;
   Organization: string;
@@ -27,7 +27,7 @@ const UserSchema: Schema = new Schema({
     default: "User",
     enum: ["User", "Admin", "Owner"],
   },
-  isActive: { type: Boolean, default: true },
+  isArchieve: { type: Boolean, default: false },
   tokenCreatedAt: { type: Date },
   Organization: { type: String },
   token: { type: String },
